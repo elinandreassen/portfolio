@@ -1,1 +1,27 @@
-<p>nav.component works!</p>
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" routerLink="/" (click)="close()">
+      <span class="nav__logo" aria-hidden="true">🕸️</span>
+      <span class="nav__title">Elin — Portfolio</span>
+    </a>
+
+    <button class="nav__toggle" (click)="toggle()" aria-label="Toggle menu" [attr.aria-expanded]="open">
+      ☰
+    </button>
+
+    <nav class="nav__links" [ngClass]="{ 'is-open': open }">
+      <a routerLink="/home"
+         routerLinkActive="is-active"
+         [routerLinkActiveOptions]="{ exact: true }"
+         (click)="close()">Home</a>
+
+      <a routerLink="/about"
+         routerLinkActive="is-active"
+         (click)="close()">About</a>
+
+      <a routerLink="/projects"
+         routerLinkActive="is-active"
+         (click)="close()">Projects</a>
+    </nav>
+  </div>
+</header>
